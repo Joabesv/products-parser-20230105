@@ -1,12 +1,34 @@
 {
-  "name": "products-parser-20230105",
+  "name": "fastify-knex-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "dist/server.js",
+  "engines": {
+    "node": ">=18"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "start:dev": "tsx watch src/server.ts",
+    "build": "tsup --config tsup.prod.config.ts",
+    "build:type-check": "tsc --build"
+  },
+  "keywords": [
+    "fastify",
+    "knex",
+    "typescript"
+  ],
+  "author": "Joabesv<joabevarjao123@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.13.0",  
+    "tsup": "^6.6.3",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fastify": "^4.13.0",
+    "knex": "^2.4.2",
+    "zod": "^3.20.6"
+  }
 }
