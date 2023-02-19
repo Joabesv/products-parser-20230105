@@ -3,7 +3,7 @@ import { config } from '../models/schema/env.schema';
 
 export const knexConfig: Knex.Config = {
   client: config.DATABASE_CLIENT,
-  connection: config.DATABASE_URL,  
+  connection: config.DATABASE_URL,
   searchPath: ['knex', 'public'],
   migrations: {
     extension: 'ts',
