@@ -3,7 +3,7 @@ import { Knex } from 'knex';
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('products', (table) => {
     table.increments('id', { primaryKey: true });
-    table.text('status').notNullable();
+    table.enu('column', ['draft', 'trash', 'published']).notNullable();
     table.timestamp('imported_t').defaultTo(knex.fn.now()).notNullable();
     table.text('url').notNullable();
     table.text('creator').notNullable();
