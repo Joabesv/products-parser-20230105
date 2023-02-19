@@ -11,4 +11,4 @@ pnpm i
 - copy the .env.example values to a .env file
 
 
-### This is a challenge by coodesh
+<p>This is a challenge by<a href="https://coodesh.com/"> coodesh</a></p>
