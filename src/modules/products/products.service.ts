@@ -3,7 +3,9 @@ import { ICreateProduct } from '../../models/schema/product.schema';
 
 export async function getProducts() {
   // TODO: implement pagination;
-  const products = await knex('products').select('*');
+  const products = await knex('products')
+    .select('*')
+    .paginate({ perPage: 5, currentPage: 3 });
   return products;
 }
 

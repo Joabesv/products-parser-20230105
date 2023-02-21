@@ -3,7 +3,12 @@ import {
   createProductBody,
   ProductParams,
 } from '../../models/schema/product.schema';
-import { deleteProduct, getProductById, getProducts, postProducts } from './products.service';
+import {
+  deleteProduct,
+  getProductById,
+  getProducts,
+  postProducts,
+} from './products.service';
 
 export async function listProducts() {
   const products = await getProducts();
