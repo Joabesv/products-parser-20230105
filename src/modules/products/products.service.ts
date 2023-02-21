@@ -17,3 +17,17 @@ export async function getProductById(id: number) {
     .first();
   return product;
 }
+
+export async function deleteProduct(id: number) {
+  const productToDelete = await knex<ICreateProduct>('products')
+    .where('id', id)
+    .update('status', 'trash');
+  console.log(
+    'a query',
+    knex<ICreateProduct>('products')
+      .where('id', id)
+      .update('status', 'trash')
+      .toQuery(),
+  );
+  return productToDelete;
+}

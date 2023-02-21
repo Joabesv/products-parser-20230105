@@ -3,7 +3,7 @@ import {
   createProductBody,
   ProductParams,
 } from '../../models/schema/product.schema';
-import { getProductById, getProducts, postProducts } from './products.service';
+import { deleteProduct, getProductById, getProducts, postProducts } from './products.service';
 
 export async function listProducts() {
   const products = await getProducts();
@@ -30,4 +30,14 @@ export async function listProduct(
   return reply.status(200).send({
     product,
   });
+}
+
+export async function removeProduct(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
+  const product = ProductParams.parse(request.params);
+  await deleteProduct(product.id);
+
+  return reply.status(204).send('deletei');
 }

@@ -1,4 +1,5 @@
 import { knex as setupKnex, Knex } from 'knex';
+import { attachPaginate } from 'knex-paginate';
 import { config } from '../models/schema/env.schema';
 
 export const knexConfig: Knex.Config = {
@@ -12,3 +13,4 @@ export const knexConfig: Knex.Config = {
 };
 
 export const knex = setupKnex(knexConfig);
+attachPaginate();
