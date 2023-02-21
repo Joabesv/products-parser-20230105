@@ -1,19 +1,11 @@
 import { app } from './app';
-import { knex } from './database/connection';
 import { config } from './models/schema/env.schema';
-import { formatMemoryUsage } from './utils/formatMemoryUsage';
+import { rootRoute } from './modules/root';
+import { seedDatabase } from './jobs/feed-database';
 
-app.get('/', async (request, reply) => {
-  const isConnectionStable = (await knex('products').whereNotNull('id'))
-    ? 'Stable'
-    : 'Error querying database';
-  // TODO: last time cron job was started = will query a FK in schema
-  const requestMemUsage = process.memoryUsage().heapUsed;
-  await reply.status(200).send({
-    msg: 'This is a challenge by coodesh!',
-    databaseStatus: isConnectionStable,
-    RamUsage: formatMemoryUsage(requestMemUsage),
-  });
+app.register(rootRoute);
+
+app.listen({ port: config.PORT }, async () => {
+  // await seedDatabase();
+  console.log('iniciei');
 });
-
-app.listen({ port: config.PORT });
