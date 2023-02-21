@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const createProductBody = z.object({
+  id: z.number().int().optional(),
   status: z.enum(['draft', 'trash', 'published']),
   imported_t: z.string().datetime(),
   url: z.string().url(),
@@ -22,6 +23,10 @@ export const createProductBody = z.object({
   nutriscore_score: z.number().int(),
   main_category: z.string(),
   image_url: z.string().url(),
+});
+
+export const ProductParams = z.object({
+  id: z.coerce.number(),
 });
 
 export type ICreateProduct = z.infer<typeof createProductBody>;

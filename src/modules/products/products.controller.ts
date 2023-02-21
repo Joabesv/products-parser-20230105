@@ -1,6 +1,9 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import { createProductBody } from '../../models/schema/product.schema';
-import { getProducts, postProducts } from './products.service';
+import {
+  createProductBody,
+  ProductParams,
+} from '../../models/schema/product.schema';
+import { getProductById, getProducts, postProducts } from './products.service';
 
 export async function listProducts() {
   const products = await getProducts();
@@ -15,4 +18,16 @@ export async function createProducts(
   await postProducts(product);
 
   return reply.status(201).send();
+}
+
+export async function listProduct(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
+  const { id } = ProductParams.parse(request.params);
+  const product = await getProductById(id);
+  console.log(product);
+  return reply.status(200).send({
+    product,
+  });
 }

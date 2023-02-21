@@ -10,3 +10,10 @@ export async function getProducts() {
 export async function postProducts(data: ICreateProduct) {
   await knex<ICreateProduct>('products').insert(data);
 }
+
+export async function getProductById(id: number) {
+  const product = await knex<ICreateProduct>('products')
+    .where('id', id)
+    .first();
+  return product;
+}
