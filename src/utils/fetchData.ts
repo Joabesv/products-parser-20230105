@@ -1,5 +1,4 @@
-import { config } from '../models/schema/env.schema';
-import { ICreateProduct } from '../models/schema/product.schema';
+import { config, ICreateProduct } from '../models/schema';
 
 export async function fetchData() {
   const response = await fetch(config.API_URL);

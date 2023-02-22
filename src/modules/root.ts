@@ -12,7 +12,7 @@ export async function rootRoute(app: FastifyInstance) {
     await reply.status(200).send({
       msg: 'This is a challenge by coodesh!',
       databaseStatus: isConnectionStable,
-      RamUsage: formatMemoryUsage(requestMemUsage),
+      ramUsage: formatMemoryUsage(requestMemUsage),
     });
   });
 }

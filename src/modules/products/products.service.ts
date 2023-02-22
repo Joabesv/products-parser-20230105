@@ -1,8 +1,7 @@
 import { knex } from '../../database/connection';
-import { ICreateProduct } from '../../models/schema/product.schema';
+import { ICreateProduct } from '../../models/schema';
 
 export async function getProducts() {
-  // TODO: implement pagination;
   const products = await knex('products')
     .select('*')
     .paginate({ perPage: 5, currentPage: 1 });

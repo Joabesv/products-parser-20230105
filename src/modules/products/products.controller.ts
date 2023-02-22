@@ -1,8 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import {
-  createProductBody,
-  ProductParams,
-} from '../../models/schema/product.schema';
+import { createProductBody, ProductParams } from '../../models/schema';
 import {
   deleteProduct,
   getProductById,
