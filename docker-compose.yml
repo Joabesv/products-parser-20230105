@@ -9,12 +9,7 @@ services:
       - postgres:/data/postgres
     env_file:
       - .env
-    # environment:
-    #   - POSTGRES_PASSWORD=teste-db-pwd
-    #   - POSTGRES_USER=joabesvtest
-    #   - POSTGRES_DB=food-test-db 
     ports:
       - '5432:5432'
-
 volumes:
   postgres:

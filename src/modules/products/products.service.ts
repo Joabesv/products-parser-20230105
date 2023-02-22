@@ -5,7 +5,7 @@ export async function getProducts() {
   // TODO: implement pagination;
   const products = await knex('products')
     .select('*')
-    .paginate({ perPage: 5, currentPage: 3 });
+    .paginate({ perPage: 5, currentPage: 1 });
   return products;
 }
 
